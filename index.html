@@ -16,6 +16,7 @@
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
 
+  <link rel="icon" type="image/png" href="./img/logo 2.png">
 </head>
 
 <body onload="init()">
@@ -29,17 +30,16 @@
   <div class="container">
 
     <div class="card quiz-card">
-      <img src="./img/pencil.jpg" class="card-img-top" alt="kleines Quizbeispielbild">
+      <img src="./img/pencil.jpg" id="header-image" class="card-img-top" alt="kleines Quizbeispielbild">
 
 
       <div class="card-body" id="endScreen" style="display: none;">
-        <div class="text-center">Quiz beendet!
+        <div class="text-center final-headline">Quiz beendet!
         </div>
 
-        <div><img class="width-100" src="img/cup.png" alt="Bild von Siegerpokal"></div>
-
         <div class="text-center">
-          Du hast <b id="amount-of-right-questions">XXX</b> Fragen von <b id="amount-of-questions">XXX</b> richtig beantwortet.
+          Du hast <b id="amount-of-right-questions">XXX</b> Fragen von <b id="amount-of-questions">XXX</b> richtig
+          beantwortet.
         </div>
       </div>
 
