@@ -59,6 +59,8 @@ let questions = [
 
 let currentQuestion = 0;
 
+let rightQuestions = 0;
+
 
 function init() {
     document.getElementById('all-questions').innerHTML = questions.length;
@@ -67,14 +69,23 @@ function init() {
 }
 
 function showQuestion() {
-    let question = questions[currentQuestion];
 
-    document.getElementById('question-number').innerHTML = currentQuestion + 1;
-    document.getElementById('questiontext').innerHTML = question['question'];
-    document.getElementById('answer_1').innerHTML = question['answer_1'];
-    document.getElementById('answer_2').innerHTML = question['answer_2'];
-    document.getElementById('answer_3').innerHTML = question['answer_3'];
-    document.getElementById('answer_4').innerHTML = question['answer_4'];
+    if (currentQuestion >= questions.length) {
+        document.getElementById('endScreen').style = '';
+        document.getElementById('questionBody').style = 'display: none';
+
+        document.getElementById('amount-of-questions').innerHTML = questions.length;
+        document.getElementById('amount-of-right-questions').innerHTML = rightQuestions;
+    } else {
+        let question = questions[currentQuestion];
+
+        document.getElementById('question-number').innerHTML = currentQuestion + 1;
+        document.getElementById('questiontext').innerHTML = question['question'];
+        document.getElementById('answer_1').innerHTML = question['answer_1'];
+        document.getElementById('answer_2').innerHTML = question['answer_2'];
+        document.getElementById('answer_3').innerHTML = question['answer_3'];
+        document.getElementById('answer_4').innerHTML = question['answer_4'];
+    }
 }
 
 function answer(selection) {
@@ -85,6 +96,7 @@ function answer(selection) {
 
     if (selectedQuestionNumber == question['right_answer']) {
         document.getElementById(selection).parentNode.classList.add('bg-success');
+        rightQuestions++;
     } else {
         document.getElementById(selection).parentNode.classList.add('bg-danger');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
